@@ -1,0 +1,33 @@
+.inputcont{
+  display: flex;
+  align-items: initial;
+  flex-direction: column;
+  padding: 5px;
+  transition: all .2s
+}
+
+.inputcont:hover, .inputcont:focus{
+  transform: scale(1.02);
+}
+
+.inputcont label{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inputcont input{
+  border-radius: 7px;
+  text-align: center;
+  height: 43px;
+  color: black;
+  font-size: 16px;
+  background-color: #ccc;
+  border: solid 1px rgb(156, 156, 156);
+  transition: all .2s
+}
+
+.inputcont input:hover, .divinput input:focus{
+  outline: none;
+  border-color: #0c9637 !important;
+}
+

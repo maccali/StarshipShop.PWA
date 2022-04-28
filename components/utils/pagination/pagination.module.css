@@ -1,0 +1,77 @@
+.cont{
+  display: flex;
+  justify-content: center;
+}
+
+.card{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  width: 220px;
+}
+
+.card > div {
+  margin: 5px;
+}
+
+.line{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: inherit;
+}
+
+.line > div {
+  margin: 5px;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+  border-radius: 7px;
+  color: white;
+  background-color: #b71e23 !important;
+  transition: all .2s
+}
+
+.btn svg{
+  height: 25px;
+  width: 25px;
+  transition: all .2s
+}
+
+.btn:hover, .btn:focus{
+  transform: scale(1.1);
+}
+
+.btn:hover > svg, .btn:focus > svg{
+  /* color: black !important; */
+}
+
+.divinput input{
+  border-radius: 7px;
+  text-align: center;
+  height: 43px;
+  color: black;
+  font-size: 21px;
+  width: 110px;
+  background-color: #ccc;
+  border: solid 1px rgb(156, 156, 156);
+  transition: all .2s
+}
+
+.divinput input:hover, .divinput input:focus{
+  transform: scale(1.1);
+  outline: none;
+  border-color: #b71e23 !important;
+}
+
+.numbercenter{
+  color: white;
+  font-size: 21px;
+}

@@ -1,0 +1,1 @@
+console.log("🎮😘 Bem-vindo ao Marvel Games Shop PWA 🙃🕹")

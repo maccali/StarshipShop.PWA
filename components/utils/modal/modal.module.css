@@ -1,0 +1,94 @@
+.fixedcont{
+  position: fixed;
+  width: 100%;
+  background-color: #1e1e2f;
+  z-index: 250;
+}
+
+.mt60 {
+  margin-top: 60px;
+}
+
+.contaside{
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #27293d;
+  color: #fff;
+  width: 0;
+  transition: all .25s;
+  border-left: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  z-index: 250;
+}
+
+.bgprimary{
+  background-color: #27293d;
+}
+
+.contaside::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+.contasideativado{
+  width: 100% !important;
+}
+
+.contasidefix{
+  display: flex;
+  flex-direction: column;
+  background-color: #27293d;
+  width: 100vw;
+}
+
+.headercont{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.headercont p{
+  display: flex;
+  color: white;
+  font-size: 20px;
+  margin: 0;
+}
+
+.headercont a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.headercont a:hover{
+  transform: scale(1.1);
+}
+
+.headercont a svg{
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.img {
+  display: inline-flex;
+  height: inherit;
+  align-items: center;
+}
+
+.img img{
+  height: 48px;
+}

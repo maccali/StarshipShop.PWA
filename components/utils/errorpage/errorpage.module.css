@@ -1,0 +1,30 @@
+.card{
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 200px);
+}
+
+
+.text{
+  align-self: center;
+}
+
+.text > *{
+  margin-bottom: 20px;
+}
+
+.text p, .text h1, .text h2{
+  color: black;
+}
+
+.text p{
+  font-size: 16px;
+}
+
+.text h1{
+  font-size: 40px;
+}
+
+.text h2{
+  font-size: 35px;
+}

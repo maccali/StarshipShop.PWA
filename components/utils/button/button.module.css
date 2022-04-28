@@ -1,0 +1,70 @@
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b71e23;
+  padding: 11px 0;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all .3s;
+}
+
+.btn:hover{
+  transform: scale(1.05);
+}
+
+.btn span, .btn svg{
+  transition: all .3s;
+}
+
+.btn:hover span, .btn:hover svg{
+  color: white;
+}
+
+.btn svg, .btn p{
+  height: 20px;
+  width: 20px;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.btn p{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.pos span{
+  margin-left: 16px;
+}
+
+.pre span{
+  margin-right: 16px;
+}
+
+.text span{
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.icon svg, .icon p{
+  margin-right: 11px;
+  margin-left: 11px;
+  margin-bottom: 0;
+}
+
+.load{
+  display: flex;
+  align-items: center;
+  content: 'entrar';
+  justify-content: center;
+}
+
+.taglink{
+  text-decoration: none !important;
+}

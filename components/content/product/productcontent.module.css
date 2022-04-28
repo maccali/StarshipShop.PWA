@@ -1,0 +1,45 @@
+.title{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.img{
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 70vh;
+  margin-bottom: 50px;
+}
+
+.img img{
+  object-fit: contain;
+}
+
+.price{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.description{
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.description p{
+  text-indent: 1.4em;
+  text-align: justify;
+}
+
+.pricerelations{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.addtocart button{
+  background-color: #0c9637;
+}
