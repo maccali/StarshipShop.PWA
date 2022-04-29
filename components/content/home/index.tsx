@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 
 // External Libs
 import Head from 'next/head'
@@ -22,7 +22,7 @@ import api from '../../../services/api'
 function HomeContent() {
 
 
-  const [comics, setComics] = useState([]);
+  const [product, setProduct] = useState<Array<ProductFace>>([]);
   const [load, setLoad] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(9);
@@ -34,36 +34,17 @@ function HomeContent() {
   const [error, setError] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>('There was an error when catching days, Verify Internet');
 
-  type ThumbnailFace = {
-    path: string,
-    extension: string,
-  }
-
-  type PricesFace = {
-    type: string,
-    price: number
-  }
-
-  type ComicFace = {
-    title: string,
-    description?: string,
-    thumbnail: ThumbnailFace,
-    prices: Array<PricesFace>
-  }
-
+  
   async function getData() {
 
     setOffset(page * limit)
     setLoad(true)
 
-    api.get(`/v1/public/comics?limit=${limit}&offset=${offset}`)
+    api.get(`/products`)
       .then((response: any) => {
         if (response.status === 200) {
-
-          var { results } = response.data.data
-
-          setComics(comics.concat(results))
-
+          console.log(response.data)
+          setProduct(product.concat(...response.data))
         }
         setPage(page + 1)
         setLoad(false)
@@ -91,18 +72,18 @@ function HomeContent() {
       <div className="container-fluid">
         <div className="container p-0">
           <div className="row">
-            {comics.map((comic: ComicFace) =>
-              <div className="col-12 col-sm-6 col-md-4">
+            {product && product.map((product: ProductFace) =>
+              <div key={product.id} className="col-12 col-sm-6 col-md-4">
                 <Button
-                  title={comic.title}
-                  action={() => openModal(comic)}
+                  title={product.title}
+                  action={() => openModal(product)}
                   noStyle
                 >
                   <ProductCard
-                    title={comic.title}
-                    imgUrl={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                    description={comic.description}
-                    price={comic.prices[0].price}
+                    title={`${product.title} -- ${product.category}`}
+                    imgUrl={`${product.image}`}
+                    description={`${product.description} -- ${product.category}`}
+                    price={product.price}
                   />
                 </Button>
               </div>

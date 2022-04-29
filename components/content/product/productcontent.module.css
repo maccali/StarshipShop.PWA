@@ -1,45 +1,59 @@
-.title{
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 110px 80px 1fr 1fr;
+  column-gap: 20px;
+  grid-template-areas:
+    "title title title title"
+    "image image price addtocart"
+    "image image description description"
+    "image image description description";
+}
+
+.title {
+  grid-area: title;
   display: flex;
   justify-content: center;
   margin-top: 40px;
   margin-bottom: 30px;
 }
 
-.img{
+.image {
+  grid-area: image;
   display: flex;
   justify-content: center;
-  max-width: 100%;
-  max-height: 70vh;
-  margin-bottom: 50px;
 }
 
-.img img{
+.image img {
+  max-width: 100%;
+  max-height: 70vh;
   object-fit: contain;
 }
 
-.price{
-  font-size: 20px;
-  font-weight: bold;
+.price {
+  grid-area: price;
 }
 
-.description{
-  margin-top: 40px;
-  margin-bottom: 50px;
+.addtocart {
+  grid-area: addtocart;
+  display: flex;
+  justify-content: right;
 }
 
-.description p{
+.addtocart div button {
+  background-color: #0c9637;
+}
+
+.description {
+  grid-area: description;
+}
+
+.description p {
   text-indent: 1.4em;
   text-align: justify;
 }
 
-.pricerelations{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.addtocart button{
-  background-color: #0c9637;
+.price {
+  font-size: 20px;
+  font-weight: bold;
 }

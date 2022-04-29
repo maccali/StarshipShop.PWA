@@ -1,23 +1,26 @@
-interface ComicPriceFace {
-  type: string,
-  price: number
+interface RatingFace {
+  count: number;
+  rate: number;
 }
 
-interface ComicThumbnailFace {
-  path: string,
-  extension: string,
+interface ProductFace {
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: RatingFace;
+  title: string;
+}
+interface ProductCapsuleFace {
+  product: ProductFace;
 }
 
-interface ComicFace {
-  id: number,
-  title: string,
-  quantity: number,
-  total: number,
-  description?: string,
-  thumbnail: ThumbnailFace
-  prices: Array<PricesFace>
-}
-
-interface ComicCapsuleFace {
-  product: ComicFace
+interface ProductFaceCart {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  quantity: number;
+  total: number;
 }

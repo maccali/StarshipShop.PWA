@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 
 import * as yup from "yup";
 import YupHelper from '../../../helpers/YupHelper'
-import ErrorHelper from '../../../helpers/ErrorHelper'
 
 import CartHelper from '../../../helpers/CartHelper'
 import CartCard from '../../cards/cart'
@@ -23,7 +22,7 @@ const AdressSchema = yup.object().shape({
 
 function CartContent() {
 
-  const [items, setItems] = useState<Array<ComicFace>>([]);
+  const [items, setItems] = useState<Array<ProductFaceCart>>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [totalQuantity, setTotalQuantity] = useState<number>(0);
 
@@ -110,9 +109,10 @@ function CartContent() {
                 <div className="col-xs-12">
                   {items.map(item =>
                     <CartCard
+                      key={item.id}
                       title={item.title}
-                      imgUrl={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-                      price={item.prices[0].price}
+                      image={item.image}
+                      price={item.price}
                       quantity={item.quantity}
                       total={item.total}
                       addFunction={() => {
@@ -211,7 +211,7 @@ function CartContent() {
       </div>
       <Modal
         open={modal}
-        setClose={() => { 
+        setClose={() => {
           CartHelper.removeAll()
           window.location.href = '/'
         }}

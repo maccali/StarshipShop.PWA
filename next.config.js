@@ -20,8 +20,10 @@ runtimeCaching.map((item) => {
 
 module.exports = withPWA({
   pwa: {
+    disable: process.env.NODE_ENV === "development",
     dest: "public",
     importScripts: ["/worker.js"],
+    mode: "production",
     runtimeCaching,
   },
   webpack: (config) => {
@@ -35,6 +37,6 @@ module.exports = withPWA({
   },
   images: {
     deviceSizes: [320, 640, 768, 1024, 1600],
-    domains: ["apod.nasa.gov"],
+    domains: ["fakestoreapi.com"],
   },
 });
