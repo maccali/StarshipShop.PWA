@@ -85,10 +85,10 @@ function Nav() {
             </li>
           </ul>
           <ul className={styles.menu}>
-            <Button href="/cart" noStyle>
+            <Button title='Meu Carrinho' href="/cart" noStyle>
               <FiShoppingCart />
             </Button>
-            <Button action={() => setMenuActive(!menuActive)} noStyle>
+            <Button title="Menu" action={() => setMenuActive(!menuActive)} noStyle>
               <FiMenu />
             </Button>
           </ul>
