@@ -7,7 +7,7 @@ const title = '';
 const description =
   '';
 const imagemUrl = '/imgs/social.png';
-const siteUrl = 'https://marvel-shop.pictu.one/';
+const siteUrl = 'https://star-ship-shop.pictu.one/';
 
 function Meta() {
   useEffect(() => {

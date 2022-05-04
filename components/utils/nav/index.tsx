@@ -5,6 +5,7 @@ import { MdClose } from "react-icons/md";
 import { motion } from "framer-motion"
 import Link from 'next/link'
 import Button from '../button'
+import CartHelper from '../../../helpers/CartHelper'
 
 import styles from './nav.module.css'
 
@@ -14,6 +15,7 @@ function Nav() {
   const [menuBack, setMenuBack] = useState(false);
   const [installBtn, setInstallBtn] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState();
+  const [totalQuantity, setTotalQuantity] = useState<number>(0);
   const [links, setLinks] = useState([
     { icone: <TiGroupOutline />, nome: 'About', url: '/about' },
   ]);
@@ -45,6 +47,10 @@ function Nav() {
       });
     })()
   });
+
+  useEffect(() => {
+    setTotalQuantity(CartHelper.getTotalQuantity())
+  }, [])
 
   function install() {
     setInstallBtn(false)
@@ -86,7 +92,9 @@ function Nav() {
           </ul>
           <ul className={styles.menu}>
             <Button title='Meu Carrinho' href="/cart" noStyle>
-              <FiShoppingCart />
+              <div className={styles.cardBtn}>
+                <FiShoppingCart /> <span>{totalQuantity}</span>
+              </div>
             </Button>
             <Button title="Menu" action={() => setMenuActive(!menuActive)} noStyle>
               <FiMenu />
@@ -105,7 +113,7 @@ function Nav() {
               <div>
                 <img src="/icons/icon126t.png" />
               </div>
-              <span>Marvel Games Shop</span>
+              <span>Star Ship Shop</span>
             </div>
             <div className={styles.menulist}>
               {Object.keys(links).map((key) => (

@@ -8,6 +8,7 @@ import styles from './productcontent.module.css'
 import Button from '../../utils/button'
 
 import CartHelper from '../../../helpers/CartHelper'
+import Router from 'next/router'
 
 type Capsule = {
   product: ProductFace
@@ -54,7 +55,10 @@ function ProductContent({
                   <div>
                     <Button
                       title="Add To Cart"
-                      action={() => CartHelper.addToCart(product)}
+                      action={() => {
+                        CartHelper.addToCart(product)
+                        Router.push("/cart")
+                      }}
                       pos
                     >
                       <span>Add To Cart</span>
