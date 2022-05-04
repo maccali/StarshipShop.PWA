@@ -1,7 +1,8 @@
 
 import React, { useEffect } from 'react'
 
-import { MdAddShoppingCart } from 'react-icons/md'
+import { MdAddShoppingCart, MdOutlineEmojiPeople } from 'react-icons/md'
+import { GoStar } from 'react-icons/go'
 
 import styles from './productcontent.module.css'
 import Button from '../../utils/button'
@@ -29,6 +30,16 @@ function ProductContent({
 
                 <div className={styles.title}>
                   <h2>{product.title}</h2>
+                </div>
+
+                <div className={styles.rate}>
+                  <span className={styles.star}>
+                    <GoStar /><span>{product.rating.rate}</span>
+                  </span>
+                  <span className={styles.count}>
+                    <span>{product.rating.count}</span>
+                    <span>Ratings</span>
+                  </span>
                 </div>
 
                 <div className={styles.image}>

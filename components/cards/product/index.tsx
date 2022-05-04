@@ -1,7 +1,7 @@
 import styles from './productcard.module.css'
 
 import { GoStar } from 'react-icons/go'
-import { MdOutlineEmojiPeople } from 'react-icons/MD'
+import { MdOutlineEmojiPeople } from 'react-icons/md'
 
 type Rating = {
   rate: number

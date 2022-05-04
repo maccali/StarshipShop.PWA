@@ -23,7 +23,7 @@ function HomeContent() {
 
 
   const [product, setProduct] = useState<Array<ProductFace>>([]);
-  const [load, setLoad] = useState<boolean>(false);
+  const [load, setLoad] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(9);
   const [offset, setOffset] = useState<number>(0);

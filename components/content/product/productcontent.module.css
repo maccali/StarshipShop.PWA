@@ -4,7 +4,7 @@
   grid-template-rows: 110px 80px 1fr 1fr;
   column-gap: 20px;
   grid-template-areas:
-    "title title title title"
+    "title title title rate"
     "image image price addtocart"
     "image image description description"
     "image image description description";
@@ -13,7 +13,7 @@
 .title {
   grid-area: title;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   margin-top: 40px;
   margin-bottom: 30px;
 }
@@ -21,7 +21,7 @@
 .image {
   grid-area: image;
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .image img {
@@ -56,4 +56,31 @@
 .price {
   font-size: 20px;
   font-weight: bold;
+}
+
+.rate {
+  grid-area: rate;
+  display: flex;
+  justify-content: center;
+  justify-self: flex-end;
+  align-self: center;
+  flex-direction: column;
+}
+
+.star {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.star > svg {
+  margin-right: 7px;
+}
+
+.count {
+  font-size: 12px;
+}
+
+.count > span {
+  margin-right: 5px;
 }

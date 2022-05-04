@@ -1,12 +1,12 @@
 import { BiLeftArrow } from "react-icons/bi"
-import ErrorPage from "utils/errorpage"
-import Button from "utils/button"
+// import ErrorPage from "../../../../utils/errorpage"
+// import Button from "utils/button"
 
 
 function MyApp() {
   return (
     <>
-      <ErrorPage
+      {/* <ErrorPage
         statusCode={404}
         message="Parece que entrou em uma página inexistente, volte ao caminho"
         title="404"
@@ -18,7 +18,7 @@ function MyApp() {
           <BiLeftArrow />
           <span>Voltar</span>
         </Button>
-      </ErrorPage >
+      </ErrorPage > */}
     </>
   )
 }
