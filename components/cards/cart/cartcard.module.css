@@ -8,14 +8,18 @@
     .3fr 1fr 1fr 1fr
     ;
   margin-top: 15px;
-  margin-bottom: 15px;
-  background-color: #ababab2d;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  background-color: #ffffff;
+  border-bottom: rgb(197, 197, 197) 1px dashed;
   /* background-color: #ababab; */
-  transition: all .2s;
+  transition: all .1s;
+  border-radius: 0 80px 80px 0;
 }
 
 .card:hover{
-  background-color: #c0bebe;
+  border-bottom: rgb(124, 124, 124) 1px solid;
+  border-radius: 0;
 }
 
 .img{
@@ -27,7 +31,7 @@
 
 .img img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .title{
