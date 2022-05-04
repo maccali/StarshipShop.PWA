@@ -34,7 +34,7 @@ function HomeContent() {
   const [error, setError] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>('There was an error when catching days, Verify Internet');
 
-  
+
   async function getData() {
 
     setOffset(page * limit)
@@ -84,6 +84,7 @@ function HomeContent() {
                     imgUrl={`${product.image}`}
                     description={`${product.description} -- ${product.category}`}
                     price={product.price}
+                    rating={product.rating}
                   />
                 </Button>
               </div>
