@@ -1,26 +1,33 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
-import * as yup from "yup";
+import * as Yup from "yup";
 import YupHelper from '../../../helpers/YupHelper'
+import { Form } from "@unform/web";
+import { SubmitHandler, FormHandles } from "@unform/core";
 
 import CartHelper from '../../../helpers/CartHelper'
 import CartCard from '../../cards/cart'
 
 import styles from './cartcontent.module.css'
 import Button from '../../utils/button'
-import Input from '../../utils/input'
 import Modal from '../../utils/modal'
 
+import Input from '../../../components/inputs/input'
+import { InputMasked } from '../../../components/inputs/InputMasked'
 
-const AdressSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email('Value is not a e-mail')
-    .required('Type an Email'),
-});
+// const AdressSchema = yup.object().shape({
+
+//   cpf: yup.string().required("CPF é Necessário"),
+//   email: yup.string().email().required("Email é Necessário"),
+//   password: yup.string().min(8).required("Senha é Necessária"),
+//   zipCode: yup.string().required("CEP é Necessário"),
+//   address: yup.string().required("Endereço é Necessário"),
+//   number: yup.string().required("Número é Necessário"),
+// });
 
 function CartContent() {
+  const formRef = useRef<FormHandles>(null);
 
   const [items, setItems] = useState<Array<ProductFaceCart>>([]);
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -54,36 +61,42 @@ function CartContent() {
     getTotals()
   }
 
-  function handleSubmit() {
-    setLoad(true)
+  const handleSubmit: SubmitHandler = async () => {
+    setLoad(true);
 
-    console.log('😁😁')
-    console.log(email)
-    AdressSchema.validate({
-      email
-    }, { abortEarly: false })
-      .then((_data) => {
-        console.log('😘 Dados válidos')
-        // sendRequest(data)
-        setEmailError(false)
-        setModal(true)
-        setLoad(false)
-        // set modal open
-      })
-      .catch(function (err) {
-        console.log('😥 Dados inválidos')
+    const data = formRef.current.getData()
 
-        var errors = YupHelper.errorTreatment(err)
+    if (!formRef.current) {
+      throw new Error();
+    }
 
-        errors.map((item) => {
-          if (item.field === "email") {
-            setEmailError(true)
-            setEmailErrorMsg(item.message)
-          }
-        })
-        setLoad(false)
+    try {
+      formRef.current.setErrors({});
+      const schema = Yup.object().shape({
+        zipCode: Yup.string().required("CEP é Necessário"),
+        address: Yup.string().required("Endereço é Necessário"),
+        number: Yup.string().required("Número é Necessário"),
       });
-  }
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      // sendData(data);
+      // setEmailError(false)
+      setModal(true)
+      setLoad(false)
+    } catch (err) {
+      const validationErrors: any = {};
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          console.log("err", error.path)
+          validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+      }
+      setLoad(false);
+    }
+  };
 
   useEffect(() => {
     run()
@@ -163,19 +176,50 @@ function CartContent() {
                 </div>
               </div>
               <div className="row">
-                < div className="col-xs-12 col-md-4">
-                </div>
-                < div className="col-xs-12 col-md-4">
-                  <Input
-                    title='Email'
-                    label='email'
-                    type="text"
-                    value={email}
-                    onChange={(event: any) => { setEmail(event.target.value) }}
-                  />
-                  {(emailError ? <p className="text-danger">{emailErrorMsg}</p> : '')}
 
+                <div>
+                  <Form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
+                    <div className={styles.zipCode}>
+                      <InputMasked
+                        name="zipCode"
+                        placeholder="CEP"
+                        label="CEP"
+                        mask="99999-999"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className={styles.address}>
+                      <Input
+                        name="address"
+                        label="Endereço"
+                        placeholder="Endereço"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className={styles.number}>
+                      <InputMasked
+                        name="number"
+                        placeholder="Número"
+                        label="Número"
+                        mask="999999999"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className={styles.complement}>
+                      <Input
+                        name="complement"
+                        label="Complemento"
+                        placeholder="Complemento"
+                        type="text"
+                      />
+                    </div>
+                  </Form>
                 </div>
+
+
                 < div className="col-xs-12 col-md-4">
                 </div>
               </div>

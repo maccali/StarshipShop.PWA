@@ -1,0 +1,37 @@
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 25px;
+  /* border: 2px solid rgb(104, 0, 0); */
+  font-size: 15px;
+  color: var(--primary-color-var3);
+  transition: all 0.2s;
+}
+
+.input:focus {
+  border-radius: 5px;
+  /* border: 2px solid var(--primary-color-var2); */
+  border-color: var(--primary-color-var3);
+}
+
+.card label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: black;
+}
+
+.card span {
+  font-size: 12px;
+  font-weight: bolder;
+  margin-top: 3px;
+}
+
+.input:disabled {
+  font-weight: bold;
+  color: black;
+  border: 2px solid #ccc;
+}

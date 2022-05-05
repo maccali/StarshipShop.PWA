@@ -1,7 +1,7 @@
 // import 'tailwindcss/tailwindz.css'
 import "./../public/custom/css/template.css?v=3";
 import "./../public/libs/bootstrap/bootstrap.min.css?v=3";
-import 'react-toastify/dist/ReactToastify.minimal.css';
+// import 'react-toastify/dist/ReactToastify.minimal.css';
 
 import { AppProps } from "next/app";
 

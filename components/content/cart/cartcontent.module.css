@@ -81,3 +81,32 @@
   text-align: center;
   width: 250px;
 }
+
+.form {
+  display: grid;
+  gap: 15px;
+  grid-template:
+    "address address address number"
+    "complement complement zipCode zipCode";
+  margin-bottom: 30px;
+}
+
+.zipCode {
+  grid-area: zipCode;
+}
+
+.address {
+  grid-area: address;
+}
+
+.number {
+  grid-area: number;
+}
+
+.complement {
+  grid-area: complement;
+}
+
+.checkout {
+  margin-bottom: 180px;
+}
