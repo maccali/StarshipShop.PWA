@@ -7,7 +7,7 @@ const Spinner = () => (
   <div className={styles.cont}>
     <MoonLoader
       size={120}
-      color={"#fff"}
+      color={"#000"}
       loading={true}
     />
   </div>

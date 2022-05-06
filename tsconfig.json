@@ -28,7 +28,6 @@
   ],
   "include": [
     "**/*.ts",
-    "**/*.tsx",
-    "pages/dashboard/index.js"
+    "**/*.tsx"
   ]
 }
